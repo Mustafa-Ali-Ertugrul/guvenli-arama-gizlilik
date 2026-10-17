@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Güvenli Arama – Gizlilik Politikası</title>
+<style>
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.25rem;
+  line-height: 1.6;
+}
+code {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  background: #f2f2f2;
+  padding: 0.1rem 0.3rem;
+}
+</style>
+</head>
+<body>
+<h1>Gizlilik Politikası</h1>
+
+<p>Uygulama adı: Güvenli Arama<br>
+Paket adı: com.guvenliarama.app</p>
+
+<h2>Bu belgenin durumu</h2>
+
+<p>Bu belge, uygulamanın yürürlük tarihindeki davranışını anlatır.</p>
+
+<p>Bu uygulama resmi bir kurum uygulaması değildir. Size gösterilen bilgiler, kurumların resmi
+internet sitelerinde yayımlanan verilerin derlemesidir.</p>
+
+<h2>Uygulama ne yapar?</h2>
+
+<p>Uygulama, Android sisteminin arama tanıma altyapısı üzerinden gelen arama numarasını alır,
+bu numarayı cihaz üzerinde bellekte tutulan resmi kurum listesiyle eşleştirir. Eşleşme
+bulunduğunda, aramanın eşleşen kurumdan geldiği ihtimaline dair bildirim
+gösterir; eşleşme bulunamadığında veya numara gizli olduğunda "bilinmeyen arama" uyarısı verir.</p>
+
+<p>İşlem tamamen cihaz üzerinde gerçekleşir: numara sistem tarafından uygulamaya iletilir,
+sadece bellekte eşleştirme için değerlendirilir ve sonrasında hiçbir yere yazılmaz veya
+iletilmez.</p>
+
+<h2>Toplanan, saklanan veya iletilen veri</h2>
+
+<p>Yok.</p>
+
+<p>Numara sadece karşılaştırma anında bellekte değerlendirilir; diske, veritabanına veya loga
+yazılmaz, cihazdan çıkmaz. Bu, uygulamanın INTERNET iznine sahip olmamasıyla da teknik olarak
+desteklenir: uygulamada hiçbir ağ erişimi kodlanmamıştır.</p>
+
+<p>Gelen aramanın numarası sadece işlem sırasında bellekte tutulur ve bildirim/geri arama
+işlemleri bittiğinde işlem biter. Bildirimlerde arayanın numarası değil, eşleşen kurumun adı
+görünür.</p>
+
+<h2>Kullanılan izinler ve amaçları</h2>
+
+<ol>
+<li><strong>POST_NOTIFICATIONS</strong> (<code>android.permission.POST_NOTIFICATIONS</code>) — Kurumla eşleşen aramada
+bildirim göstermek için. Bildirim gösterilmezse uygulama yine çalışır (arayıp numara kontrolü
+yapmak isteyen kullanıcı "Resmi numaralar rehberi" ekranından manuel arama yapabilir).</li>
+<li><strong>Role Manager / ROLE_CALL_SCREENING</strong> — Android, gelen aramanın numarasını uygulamaya iletir.
+Uygulama konuşmaya, sese veya arama içeriğine ERİŞEMEZ; aramayı engellemez, sadece bildirim
+gösterir. Bu rol, bildirimi "arama tanıma" amacına kullanır: gelen çağrı numarasını (ve
+yönünü) okur, kurumsal listeyle karşılaştırır, sonucu sisteme bildirir.</li>
+<li>Servis, <strong>BIND_SCREENING_SERVICE</strong> korumalı izniyle bağlanır ve <code>android.telecom.CallScreeningService</code>
+intent filtresiyle tanıtılır.</li>
+</ol>
+
+<p>Bu izinler dışında uygulama aşağıdaki türden hiçbir izin istemez: rehber, arama kaydı,
+konum, mikrofon, kamera, dosyalar.</p>
+
+<h2>Kurum listesi ve kaynağı</h2>
+
+<p>Liste, uygulama içinde yer alan <code>kurumlar.json</code> dosyasında gelir. Kurumların resmi internet
+sitelerinde (örnek: <code>*.adalet.gov.tr</code>, <code>*.pol.tr</code>, <code>jandarma.gov.tr</code>, ilgili kaymakamlık ve
+belediye <code>*.gov.tr</code> adresleri) yayımlanan iletişim numaraları derlenir. Listede kurum
+logosu veya görseli kullanılmaz.</p>
+
+<h2>Veri sorumlusu</h2>
+
+<p>Veri sorumlusu ve iletişim:</p>
+<ul>
+<li>Sorumlu kişi / unvan: Mustafa Ali Ertuğrul</li>
+<li>E-posta: ertugrulmustafaali@gmail.com</li>
+<li>Yürürlük: 16.10.2026</li>
+</ul>
+
+<p>Değişiklikler bu belgede duyurulur.</p>
+
+<hr>
+
+<p><strong>Bu uygulama resmi bir kurum
+uygulaması değildir.</strong></p>
+
+</body>
+</html>
